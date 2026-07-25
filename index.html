@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoTrip - Diário de Viagens</title>
+    <meta name="theme-color" content="#0d6efd">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="assets/img/moto_branca.svg" alt="MotoTrip">
+                MotoTrip
+            </a>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-box">
+                <div class="hero-icon">
+                    <img src="assets/img/moto.svg" width="150px" alt="MotoTrip">
+                </div>
+                <h1>Organize suas viagens</h1>
+                <p>
+                    Registre abastecimentos, pedágios,
+                    hospedagens e todas as despesas,
+                    mesmo sem internet.
+                </p>
+                <button id="btnNovaViagem" type="button" class="btn btn-primary btn-lg px-5 mt-3">
+                    ✅ Nova Viagem
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VIAGENS
+    =========================================== -->
+    <section class="container mb-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4 class="mb-4">
+                    📋 Minhas Viagens
+                </h4>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-outline-primary dropdown-toggle btnDados"
+                            data-bs-toggle="dropdown">
+                            ⬇️ Dados
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li>
+                                <a class="dropdown-item" href="#" id="btnExportarJSON">
+                                    ⚫️ Exportar Backup (.json)
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#" id="btnExportarCSVViagens">
+                                    🟢 Exportar Viagens (.csv)
+                                </a>
+
+                                <a class="dropdown-item" href="#" id="btnExportarCSVDespesas">
+                                    🟢 Exportar Despesas da Viagem (.csv)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="listaViagens">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer>
+        MotoTrip • Versão 1.0 • Offline
+    </footer>
+
+    <!-- Modal Nova Viagem -->
+    <div
+        class="modal fade"
+        id="modalViagem"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Nova Viagem
+                    </h5>
+                    <button
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formViagem">
+                        <input type="hidden" id="id">
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nome da viagem
+                            </label>
+                            <input
+                                id="nome"
+                                class="form-control"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Destino
+                            </label>
+                            <input
+                                id="destino"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Data de início
+                            </label>
+                            <input
+                                id="dataInicio"
+                                type="date"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                KM Inicial
+                            </label>
+                            <input
+                                id="kmInicial"
+                                type="number"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                KM Final
+                            </label>
+                            <input
+                                id="kmFinal"
+                                type="number"
+                                class="form-control"
+                                placeholder="Opcional">
+                        </div>                        
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Observações
+                            </label>
+                            <textarea
+                                id="observacoes"
+                                rows="3"
+                                class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button
+                        id="btnSalvarViagem"
+                        class="btn btn-primary">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+        MODAL DESPESA
+    ========================================== -->
+
+    <div class="modal fade" id="modalDespesa" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        + Nova Despesa
+                    </h5>
+                    <button
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formDespesa">
+                        <input type="hidden" id="idDespesa">
+                        <input type="hidden" id="despesaId">
+                        <input type="hidden" id="viagemId">
+                        <!-- Tipo -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Tipo
+                            </label>
+                            <select
+                                id="tipoDespesa"
+                                class="form-select">
+                                <option value="Combustível">
+                                    ⛽ Combustível
+                                </option>
+                                <option value="Pedágio">
+                                    🛣 Pedágio
+                                </option>
+                                <option value="Hospedagem">
+                                    🏨 Hospedagem
+                                </option>
+                                <option value="Refeição">
+                                    🍽 Refeição
+                                </option>
+                                <option value="Café">
+                                    ☕ Café
+                                </option>
+                                <option value="Bebida">
+                                    🥤 Bebida
+                                </option>
+                                <option value="Outros">
+                                    🛒 Outros
+                                </option>
+                            </select>
+                        </div>
+                        <!-- Data -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Data
+                            </label>
+                            <input
+                                type="date"
+                                id="dataDespesa"
+                                class="form-control">
+                        </div>
+                        <!-- Campos gerais -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Descrição
+                            </label>
+                            <input
+                                id="descricaoDespesa"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Valor
+                            </label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                id="valorDespesa"
+                                class="form-control">
+                        </div>
+                        <!-- Campos combustível -->
+                        <div id="camposCombustivel">
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    KM atual
+                                </label>
+                                <input
+                                    type="number"
+                                    id="kmDespesa"
+                                    class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    Litros
+                                </label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    id="litrosDespesa"
+                                    class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    Posto
+                                </label>
+                                <input
+                                    id="postoDespesa"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </form> 
+                </div>
+                <div class="modal-footer">
+                    <button
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button
+                        id="btnSalvarDespesa"
+                        class="btn btn-primary">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/banco.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/viagens.js"></script>
+    <script src="assets/js/despesas.js"></script>
+    <script src="assets/js/exportar.js"></script>
+
+    <!-- REGISTRO DO SERVICE-WORKER -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => {
+                        console.log("Service Worker registrado.");
+                        reg.update();
+                        setInterval(() => {
+                            reg.update();
+                        }, 60000); // verifica a cada 1 minuto
+                    })
+                    .catch(err => console.error(err));
+            });
+        }
+    </script>
+</body>
+</html>
