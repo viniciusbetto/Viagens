@@ -10,7 +10,7 @@ const APP_ASSETS = [
     "./index.html",
     "./manifest.json",
     "./assets/css/style.css",
-    "./assets/css/bootstrap-min.css",
+    "./assets/css/bootstrap.min.css",
     "./assets/js/app.js",
     "./assets/js/banco.js",
     "./assets/js/util.js",
