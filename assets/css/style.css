@@ -280,9 +280,19 @@ EXPORTAÇÃO
 =========================================*/
 
 .btnDados{
-    border-radius:40px;
+    border-radius:10px;
     padding:10px 18px;
     font-weight:600;
+    width:100%;
+    margin-top:10px;
+}
+
+.btnNovaDespesa{
+    border-radius:10px;
+    padding:10px 18px;
+    font-weight:600;
+    width:100%;
+    margin-top:10px;
 }
 
 .dropdown-menu{
