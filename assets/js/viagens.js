@@ -369,7 +369,7 @@ function configurarBotoes() {
 //=====================================================
 
 function editarViagem(id) {
-    buscar("viagens", id, function (viagem) {
+    buscar("viagens", Number(id), function (viagem) {
         document.getElementById("id").value = viagem.id;
         document.getElementById("nome").value = viagem.nome;
         document.getElementById("destino").value = viagem.destino;
@@ -388,7 +388,7 @@ function editarViagem(id) {
 //=====================================================
 
 function excluirViagem(id){
-    if(!confirm("Deseja excluir esta viagem?")){
+    if(!confirm("Deseja excluir esta viagem ?")){
         return;
     }
     excluir("viagens", Number(id), function(){
