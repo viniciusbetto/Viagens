@@ -150,17 +150,38 @@ function montarCard(viagem) {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="mb-1">
-                        🏍 ${viagem.nome}
+                        🌎 ${viagem.nome}
                     </h5>
                     <div class="text-muted">
-                        🌎
+                        📍
                         ${viagem.destino || "Destino não informado"}
                     </div>
                     <div class="text-muted">
                         📅
                         ${dataBR(viagem.dataInicio)}
                     </div>
+
+                    <small class="text-muted">
+                        💰
+                        Total Gasto
+                    </small>
+                    <strong
+                        class="text-success"
+                        id="totalCard${viagem.id}">
+                        R$ 0,00
+                    </strong>
+                    <br>
+                    🛣️
+                    <strong
+                        id="kmResumo${viagem.id}">
+                        0
+                    </strong>
+                    <strong
+                        id="mediaResumo${viagem.id}">
+                        --
+                    </strong>
                 </div>
+
                 <button
                     class="btn btn-outline-primary btnAbrir"
                     data-id="${viagem.id}"
@@ -171,6 +192,8 @@ function montarCard(viagem) {
             </div>
             <hr>
             <!-- Total -->
+
+            <!--
             <div class="row mt-3 text-center">
                 <div class="col-12 col-sm-6 col-md-4 resumo-box">
                     <small class="text-muted">
@@ -204,6 +227,8 @@ function montarCard(viagem) {
                     </strong>
                 </div>
             </div>
+            -->
+
             <!-- Área expansível -->
             <div
                 class="collapse mt-3"
