@@ -3,7 +3,7 @@
 // Versão do cache
 // =====================================================
 
-const CACHE_NAME = "MotoTrip-v1.2.1";
+const CACHE_NAME = "MotoTrip-v1.2.2";
 // Arquivos essenciais
 const APP_ASSETS = [
     "./",
