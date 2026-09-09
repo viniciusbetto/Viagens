@@ -22,7 +22,8 @@ const APP_ASSETS = [
     "./assets/img/icon-192.png",
     "./assets/img/icon-512.png",
     "./assets/img/moto.svg",
-    "./assets/img/moto_branca.svg"
+    "./assets/img/moto_branca.svg",
+    "./backups/MotoTrip_Backup.json",
 ];
 
 //======================================================

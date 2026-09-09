@@ -1,0 +1,34 @@
+{
+    "aplicativo": "MotoTrip",
+    "versao": 1,
+    "exportadoEm": "2026-09-09T11:27:50.721Z",
+    "banco": "MotoTripDB",
+    "dados": {
+        "viagens": [
+            {
+                "nome": "TESTE",
+                "destino": "TESTE",
+                "dataInicio": "2026-09-09",
+                "kmFinal": 0,
+                "kmInicial": 150000,
+                "observacoes": "",
+                "criadoEm": "2026-09-09T11:27:41.123Z",
+                "id": 6
+            }
+        ],
+        "despesas": [
+            {
+                "viagemId": 4,
+                "dataHora": "2026-09-05T06:27:55.216Z",
+                "tipo": "Combustível",
+                "data": "2026-09-05",
+                "descricao": "IPIMAX",
+                "valor": 60,
+                "km": 148250,
+                "litros": 10,
+                "posto": "CASTELI BRANCO",
+                "criadoEm": "2026-09-05T06:27:55.216Z"
+            }
+        ]
+    }
+}
