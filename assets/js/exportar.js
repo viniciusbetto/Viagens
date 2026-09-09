@@ -22,9 +22,8 @@ async function exportarJSON() {
         );
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
-        const hoje = new Date().toISOString().substring(0,10);
         a.href = url;
-        a.download = `MotoTrip_Backup_${hoje}.json`;
+        a.download = `MotoTrip_Backup.json`;
         a.click();
         URL.revokeObjectURL(url);
     }
