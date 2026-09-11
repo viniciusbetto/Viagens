@@ -1,19 +1,19 @@
 {
     "aplicativo": "MotoTrip",
     "versao": 1,
-    "exportadoEm": "2026-09-09T11:27:50.721Z",
+    "exportadoEm": "2026-09-10T08:46:37.717Z",
     "banco": "MotoTripDB",
     "dados": {
         "viagens": [
             {
                 "nome": "TESTE",
                 "destino": "TESTE",
-                "dataInicio": "2026-09-09",
+                "dataInicio": "2026-09-10",
                 "kmFinal": 0,
                 "kmInicial": 150000,
                 "observacoes": "",
-                "criadoEm": "2026-09-09T11:27:41.123Z",
-                "id": 6
+                "criadoEm": "2026-09-10T08:44:44.232Z",
+                "id": 7
             }
         ],
         "despesas": [

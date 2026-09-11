@@ -7,7 +7,6 @@ function moeda(valor) {
         style: "currency",
         currency: "BRL"
     });
-
 }
 
 //=====================================================

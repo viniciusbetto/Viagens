@@ -67,27 +67,29 @@ function salvarDespesa(){
     const agora =
         new Date().toISOString();
 
+    const wvalor = document.getElementById("valorDespesa").value.replace(",",".");
+    const wlitros = document.getElementById("litrosDespesa").value.replace(",",".");
     let despesa = {
         viagemId: viagemId,
         dataHora: dataHoraOriginal || agora,
         tipo: document.getElementById("tipoDespesa").value,
         data: document.getElementById("dataDespesa").value,
         descricao: document.getElementById("descricaoDespesa").value || "",
-        valor: Number(document.getElementById("valorDespesa").value) || 0,
+        valor:  Number(wvalor) || 0,
+        // Number(document.getElementById("valorDespesa").value) || 0,
         km: Number(document.getElementById("kmDespesa").value || 0),
-        litros: Number(document.getElementById("litrosDespesa").value || 0),
+        litros: Number(wlitros) || 0,
+        // Number(document.getElementById("litrosDespesa").value || 0),
         posto: document.getElementById("postoDespesa").value || "",
         criadoEm: dataHoraOriginal || agora
     };
 
     // NOVA DESPESA
     if(dataHoraOriginal === ""){
-
         salvar("despesas", despesa, function(){
-
             modalDespesa.hide();
             listarViagens();
-
+            // console.log("Valor: ", despesa.valor);
         });
 
         return;
