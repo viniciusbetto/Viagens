@@ -1,33 +1,45 @@
 {
     "aplicativo": "MotoTrip",
     "versao": 1,
-    "exportadoEm": "2026-09-10T08:46:37.717Z",
+    "exportadoEm": "2026-09-11T20:19:59.364Z",
     "banco": "MotoTripDB",
     "dados": {
         "viagens": [
             {
                 "nome": "TESTE",
                 "destino": "TESTE",
-                "dataInicio": "2026-09-10",
+                "dataInicio": "2026-09-11",
                 "kmFinal": 0,
                 "kmInicial": 150000,
                 "observacoes": "",
-                "criadoEm": "2026-09-10T08:44:44.232Z",
+                "criadoEm": "2026-09-11T09:52:27.999Z",
                 "id": 7
             }
         ],
         "despesas": [
             {
-                "viagemId": 4,
-                "dataHora": "2026-09-05T06:27:55.216Z",
+                "viagemId": 7,
+                "dataHora": "2026-09-11T09:53:37.171Z",
                 "tipo": "Combustível",
-                "data": "2026-09-05",
-                "descricao": "IPIMAX",
-                "valor": 60,
-                "km": 148250,
-                "litros": 10,
-                "posto": "CASTELI BRANCO",
-                "criadoEm": "2026-09-05T06:27:55.216Z"
+                "data": "2026-09-11",
+                "descricao": "TESTE",
+                "valor": 45.35,
+                "km": 150000,
+                "litros": 5.22,
+                "posto": "",
+                "criadoEm": "2026-09-11T09:53:37.171Z"
+            },
+            {
+                "viagemId": 7,
+                "dataHora": "2026-09-11T09:54:02.526Z",
+                "tipo": "Pedágio",
+                "data": "2026-09-11",
+                "descricao": "CABRALIA",
+                "valor": 1.27,
+                "km": 0,
+                "litros": 0,
+                "posto": "",
+                "criadoEm": "2026-09-11T09:54:02.526Z"
             }
         ]
     }

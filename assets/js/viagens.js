@@ -149,9 +149,9 @@ function montarCard(viagem) {
             <!-- Cabeçalho da viagem -->
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h5 class="mb-1">
+                    <h6 class="mb-1">
                         🌎 ${viagem.nome}
-                    </h5>
+                    </h6>
                     <div class="text-muted">
                         📍
                         ${viagem.destino || "Destino não informado"}
@@ -172,11 +172,13 @@ function montarCard(viagem) {
                     </strong>
                     <br>
                     🛣️
-                    <strong
+                    <strong 
+                        class="text-muted"
                         id="kmResumo${viagem.id}">
                         0
                     </strong>
-                    <strong
+                    <strong 
+                        class="text-muted"
                         id="mediaResumo${viagem.id}">
                         --
                     </strong>
